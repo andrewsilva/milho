@@ -1,0 +1,34 @@
+name: MongoDB Workflow
+
+on:
+  push:
+    branches:
+      - main # Defina a branch que acionará o fluxo de trabalho
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Start MongoDB
+      run: |
+        docker run -d --name mongodb -p 27017:27017 mongo
+
+    - name: Run tests
+      run: npm test
+
+    - name: Stop MongoDB
+      run: |
+        docker stop mongodb
+        docker rm mongodb

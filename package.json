@@ -1,0 +1,17 @@
+{
+  "name": "milho",
+  "version": "1.0.0",
+  "description": "Descrição do seu projeto",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^4.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^9.0.0"
+  }
+}

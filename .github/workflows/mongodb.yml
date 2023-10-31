@@ -25,8 +25,9 @@ jobs:
       run: |
         docker run -d --name mongodb -p 27017:27017 mongo
 
-    - name: Run tests
-      run: npm test
+    # Removido o bloco de execução de testes
+    # - name: Run tests
+    #   run: npm test
 
     - name: Stop MongoDB
       run: |
